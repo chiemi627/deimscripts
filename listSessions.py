@@ -71,4 +71,4 @@ if __name__ == '__main__':
     for room in program["sessions"]:
         for sessionID in program["sessions"][room]:
             session = generateSessionInfo(room,sessionID,program["sessions"][room][sessionID],reviewer)
-            print ",".join(session)
+            print ",".join(session).encode('utf-8')
