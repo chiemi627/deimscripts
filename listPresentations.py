@@ -2,7 +2,7 @@
 
 import deim,sys
 
-def generatePresentationInfo(room,sessionID,paperID,presenOrder,program):
+def generatePresentationInfo(room,sessionID,paperID,presenOrder,papers):
     if paperID in papers["papers"]:
         presentation = papers["papers"][paperID]
         abstract = presentation["abstract"].replace("\r\n".decode('utf-8'),'').replace("\n".decode('utf-8'),'')
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             i = 1
             for paperID in program["oral"][room][sessionID]:
                 try:
-                    print ','.join(generatePresentationInfo(room,sessionID,paperID, i, program)).encode('utf-8')
+                    print ','.join(generatePresentationInfo(room,sessionID,paperID, i,papers)).encode('utf-8')
                     i = i + 1
                 except:
                     sys.stderr.write('ERROR: the paper (ID:'+paperID+") is not found. \n")
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         i = 1
         for paperID in program["interactive"]["P"][sessionID]:
                 try:
-                    print ','.join(generatePresentationInfo("P",sessionID,paperID, i, program)).encode('utf-8')
+                    print ','.join(generatePresentationInfo("P",sessionID,paperID,i, papers)).encode('utf-8')
                     i = i + 1
                 except:
                     sys.stderr.write('ERROR: the paper (ID:'+paperID+") is not found. ")

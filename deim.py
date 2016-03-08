@@ -44,6 +44,7 @@ def getSlotInfo(program):
         if curday == "" or curday != slotinfo.group(2)+"/"+slotinfo.group(3):
             curday = slotinfo.group(2)+"/"+slotinfo.group(3)
             dayno = dayno + 1
+        slot["date"] = curday
         slot["day"] = dayno
         slot["start"] = slotinfo.group(5)
         slot["end"] = slotinfo.group(6)
