@@ -60,9 +60,9 @@ def readVotes(filename,presenList,partList):
 
 # main procedure
 if __name__ == '__main__':
-    presenList = readPresentations("presen.csv")
-    partList = readParticipants("participants.csv")
-    votes = readVotes("votes.csv",presenList,partList)
+    presenList = readPresentations(sys.argv[1])
+    partList = readParticipants(sys.argv[2])
+    votes = readVotes(sys.argv[3],presenList,partList)
     for v in votes:
         presen =  presenList[v]
         result = [presen["presenID"],presen["author"],presen["organization"],presen["title"]]
