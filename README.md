@@ -38,3 +38,14 @@
  ```
  * 結果はID,発表者,所属,タイトル,一般投票数,座長投票数,投票者一覧の順に出てきます。
  * 適当に集計・ソートしてください。
+
+## generatePosterMap.py : ポスターマップ（SVGファイル）を作成する
+ * PosMAppアプリのデータを使ってSVG形式のポスターマップを作ります
+ * 印刷用，Webページ用にご活用ください
+
+ ```
+ % python generatePosterMap.py http://tkb-tsss.sakura.ne.jp/last/PosMapps/index/0UB9KVJ3 30 10
+ ```
+ * 第１引数はPosMAppのURLです
+ * 第２, 第３引数はポスター一のoffsetです。背景とポスターの位置がずれることがあるのでこちらで調節してください。
+ * day?.svgというファイルが生成されます。（２日間ポスターセッションがあれば、day1.svg, day2.svg）
