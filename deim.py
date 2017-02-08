@@ -1,6 +1,6 @@
 #coding=utf-8
 
-import json,urllib2,os,re
+import json,urllib2,os,re,string
 
 # セッション情報を取得する
 # header: jsonデータにするために不必要なphrase
@@ -46,7 +46,7 @@ def getSlotInfo(program):
             dayno = dayno + 1
         slot["date"] = curday
         slot["day"] = dayno
-        slot["start"] = slotinfo.group(5)
-        slot["end"] = slotinfo.group(6)
+        slot["start"] = string.replace(slotinfo.group(5),u' ', u'')
+        slot["end"] = string.replace(slotinfo.group(6),u' ',u'')
         slots[slotinfo.group(1)]=slot
     return slots
