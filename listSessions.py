@@ -5,7 +5,7 @@ import deim
 # セッション情報を生成する（PosTom用)
 def generateSessionInfo(room,sessionID,sinfo,reviewer):
     session = [room,sessionID,sinfo["title"]]
-    session.extend([slots[sessionID]["start"],slots[sessionID]["end"]])
+    session.extend([str(slots[sessionID]["day"]),slots[sessionID]["start"],slots[sessionID]["end"]])
     chair = reviewer["reviewers"][sinfo["chair"]]
     session.append(chair["name_last"]+" "+chair["name_first"])
     if chair["organization_abbr"] :
