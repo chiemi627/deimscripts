@@ -22,10 +22,10 @@ def generatePresentationInfo(room,sessionID,paperID,presenOrder,papers,slots):
 
 # main procedure
 if __name__ == '__main__':
-    data_papers = 'http://cms.deim-forum.org/deim2016/list/papers.php?decode&pretty&jsonp=callback'
+    data_papers = 'http://cms.deim-forum.org/deim2017/list/papers.php?decode&pretty&jsonp=callback'
     papers = deim.getPaperInfo(data_papers)
 
-    data_program = 'http://db-event.jpn.org/deim2016/data_program.js'
+    data_program = 'http://db-event.jpn.org/deim2017/data_program.js'
     program = deim.loadProgramInfo(data_program,'var sessions =')
     slots = deim.getSlotInfo(program)
     
