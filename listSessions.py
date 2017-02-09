@@ -41,7 +41,10 @@ if __name__ == '__main__':
     reviewer = deim.loadProgramInfo(data_reviewer,'var reviewers =')
     slots = deim.getSlotInfo(program)
 
-    for room in program["sessions"]:
-        for sessionID in program["sessions"][room]:
+    rooms = sorted(program["sessions"],key=lambda x:x[0])
+
+    for room in rooms:
+        sessions = sorted(program["sessions"][room],key=lambda x:x[0])
+        for sessionID in sessions:
             session = generateSessionInfo(room,sessionID,program["sessions"][room][sessionID],reviewer)
             print ",".join(session).encode('utf-8')
