@@ -1,4 +1,5 @@
 ## DEIM 用のスクリプト
+[![Build Status](https://travis-ci.org/chiemi627/deimscripts.svg?branch=master)](https://travis-ci.org/chiemi627/deimscripts)
 ### 実行環境
  * python 2.7.10 で実装＆動作確認をしています
  
