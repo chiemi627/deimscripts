@@ -1,6 +1,6 @@
 #coding=utf-8
 
-import deim
+import deim,sys
 
 # フラグ：座長とコメンテータが決まってる時は1
 reviewer_assigned = 0
@@ -37,8 +37,13 @@ if __name__ == '__main__':
     data_program = 'http://db-event.jpn.org/deim2017/data_program.js'
     data_reviewer = 'http://db-event.jpn.org/deim2017/data_reviewers.js'
 
-    program = deim.loadProgramInfo(data_program,'var sessions =')
-    reviewer = deim.loadProgramInfo(data_reviewer,'var reviewers =')
+    try:
+        program = deim.loadProgramInfo(data_program,'var sessions =')
+        reviewer = deim.loadProgramInfo(data_reviewer,'var reviewers =')
+    except:
+        sys.stderr.write("cannot load the json data")
+        sys.exit
+        
     slots = deim.getSlotInfo(program)
 
     rooms = sorted(program["sessions"],key=lambda x:x[0])
