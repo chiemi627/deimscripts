@@ -7,9 +7,9 @@ import deim
 
 class TestDeimFunctions(unittest.TestCase):	
 	def test_invalid_url_raise_exception(self):
-		self.assertRaises(ValueError, lambda: deim.loadProgramInfo("",""))
-		self.assertRaises(HTTPError, lambda: deim.loadProgramInfo("http://localhost/abc",""))
-		self.assertRaises(ValueError, lambda: deim.loadProgramInfo("http://www.google.com",""))
+		self.assertRaises(Exception, lambda: deim.loadProgramInfo("",""))
+		self.assertRaises(Exception, lambda: deim.loadProgramInfo("http://localhost/abc",""))
+		self.assertRaises(Exception, lambda: deim.loadProgramInfo("http://www.google.com",""))
 		
 	def test_invalid_data_raise_exception(self):
    		self.assertRaises(ValueError, lambda: deim.loadProgramInfoFromJsonData("abc",""))
@@ -42,9 +42,9 @@ class TestDeimFunctions(unittest.TestCase):
    		self.assertRaises(Exception,deim.getSlotInfo(program))
    		
 	def test_getPaperInfo_raise_exception_by_invalid_url(self):
-		self.assertRaises(ValueError, lambda: deim.getPaperInfo(""))
-		self.assertRaises(HTTPError, lambda: deim.getPaperInfo("http://localhost/abc"))
-		self.assertRaises(ValueError, lambda: deim.getPaperInfo("http://www.google.com"))
+		self.assertRaises(Exception, lambda: deim.getPaperInfo(""))
+		self.assertRaises(Exception, lambda: deim.getPaperInfo("http://localhost/abc"))
+		self.assertRaises(Exception, lambda: deim.getPaperInfo("http://www.google.com"))
 
 	def test_getPaperInfo_raise_exception_to_invalid_data(self):
    		self.assertRaises(ValueError, lambda: deim.getPaperInfoFromJsonData("abc"))
