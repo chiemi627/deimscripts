@@ -26,6 +26,19 @@
  % python listPresen4ReviewSheet.py > presen.csv
  ```
 
+### generateVoteData : 電子集計データの整形
+* 電子集計システム（PosVote）で出力された投票データ（PosVoteデータと呼びます）をvoteCheck.pyで使える投票データに整形します。
+* PosVoteデータの他に参加者情報（参加者IDとtype,PosVoteIDの対応表）が必要です
+* 入力ファイル（いずれも文字コードはutf-8でお願いします）
+	* 参加者データ：(参加者ID,type,PosVoteID)が書かれたCSVファイル
+		* type : 一般投票者は1, 座長・コメンテータは3
+	* PosVoteデータ：(PosVoteID,[投票したポスターのID（１〜３件）)が書かれたCSVファイル
+* 出力ファイル：投票データ。(参加者ID,type,ポスターID）が書かれたCSVファイル
+
+```
+% python generateVoteData.py participantdata.csv posvotedata.csv > votes.csv
+```
+
 ### voteCheck.py : 投票チェック
  * インタラクティブセッションの投票数と投票者のリストを出力します。
  * 入力ファイル（いずれも文字コードはutf-8でお願いします）：
