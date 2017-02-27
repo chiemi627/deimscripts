@@ -28,14 +28,14 @@ if __name__ == '__main__':
     data_program = 'http://db-event.jpn.org/deim2017/data_program.js'
     program = deim.loadProgramInfo(data_program,'var sessions =')
     slots = deim.getSlotInfo(program)
-    
+
     # list up oral presentations
     for room in program["oral"]:
         for sessionID in program["oral"][room]:
             i = 1
             for paperID in program["oral"][room][sessionID]:
                 try:
-                    print ','.join(generatePresentationInfo(room,sessionID,paperID, i,papers, slots)).encode('utf-8')
+                    print ','.join(generatePresentationInfo(room,sessionID,paperID,i,papers,slots)).encode('utf-8')
                     i = i + 1
                 except:
                     sys.stderr.write('ERROR: the paper (ID:'+paperID+") is not found. \n")
@@ -44,7 +44,7 @@ if __name__ == '__main__':
         i = 1
         for paperID in program["interactive"]["P"][sessionID]:
                 try:
-                    print ','.join(generatePresentationInfo("P",sessionID,paperID,i, papers)).encode('utf-8')
+                    print ','.join(generatePresentationInfo("P",sessionID,paperID,i,papers,slots)).encode('utf-8')
                     i = i + 1
                 except:
-                    sys.stderr.write('ERROR: the paper (ID:'+paperID+") is not found. ")
+                    sys.stderr.write('ERROR: the paper (ID:'+paperID+") is not found. \n")
